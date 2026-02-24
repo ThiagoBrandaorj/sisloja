@@ -1,0 +1,115 @@
+# README
+
+## SisLoja - Sistema de Gestão de Loja
+
+<div align="center">
+
+![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
+![Python](https://img.shields.io/badge/python-3.6+-green)
+
+**Sistema completo para gestão de loja com interface gráfica amigável**
+
+[✨ Funcionalidades](#-funcionalidades) •
+[📸 Screenshots](#-screenshots) •
+[🚀 Como executar](#-como-executar) •
+[👥 Desenvolvedores](#-desenvolvedores)
+
+</div>
+
+---
+
+## 📋 Sobre o Projeto
+
+O **SisLoja** é um sistema desktop desenvolvido em Python com interface gráfica Tkinter, projetado para facilitar a gestão completa de uma loja. O sistema oferece módulos integrados para controle de estoque, cadastro de clientes e gestão de vendas, tudo em uma interface intuitiva e moderna.
+
+### 🎯 Objetivos do Sistema
+
+- ✅ Facilitar o cadastro e controle de produtos
+- ✅ Gerenciar informações de clientes de forma eficiente
+- ✅ Registrar vendas e atualizar estoque automaticamente
+- ✅ Gerar relatórios detalhados do negócio
+- ✅ Proporcionar uma experiência de usuário agradável
+
+---
+
+## ✨ Funcionalidades
+
+### 📦 **Módulo de Estoque**
+- Cadastro completo de produtos (código, nome, descrição, valor, quantidade)
+- Cálculo automático do valor total em estoque
+- Remoção individual ou total de itens
+- Atualização de informações
+- Relatório detalhado de estoque
+
+### 👥 **Módulo de Clientes**
+- Cadastro de clientes com CPF, nome, telefone, email e renda
+- Validação automática de CPF
+- Classificação por faixa de renda (Baixa, Média, Alta)
+- Relatório com estatísticas de clientes
+- Formatação automática de dados
+
+### 💰 **Módulo de Caixa**
+- Registro de vendas com busca automática de preços no estoque
+- Atualização em tempo real do estoque ao finalizar venda
+- Histórico completo de vendas
+- Cálculo automático de totais
+- Alerta de estoque baixo
+- Relatório de vendas com estatísticas
+
+### 📊 **Módulo de Relatórios**
+- Relatórios individuais por módulo
+- Relatório completo do sistema
+- Exportação para arquivo .txt
+- Visualização integrada
+
+---
+
+## 📸 Screenshots
+
+### 🏠 **Tela Inicial**
+![Tela Inicial](prints/sis_loja_inicial.png)
+> Interface principal do sistema com acesso a todos os módulos
+
+### 📦 **Módulo de Estoque**
+<div align="center">
+  <img src="prints/sis_loja_estoque.png" width="100%" alt="Estoque Principal"/>
+</div>
+
+> **Funcionalidades:** Cadastro de produtos, controle de quantidades, cálculo automático de totais
+
+### 👥 **Módulo de Clientes**
+<div align="center">
+  <img src="prints/sis_loja_clientes.png" width="100%" alt="Clientes Principal"/>
+</div>
+
+> **Funcionalidades:** Cadastro completo, validação de CPF, classificação por renda
+
+### 💰 **Módulo de Caixa**
+<div align="center">
+  <img src="prints/sis_loja_caixa.png" width="100%" alt="Caixa Principal"/>
+</div>
+
+> **Funcionalidades:** Vendas integradas com estoque, atualização automática, histórico completo
+
+### 📊 **Módulo de Relatórios**
+<div align="center">
+  <img src="prints/sis_loja_relatorios.png" width="100%" alt="Relatórios"/>
+</div>
+
+> **Funcionalidades:** Relatórios detalhados e exportação de dados
+
+---
+
+## 🚀 Como Executar
+
+### 📋 Pré-requisitos
+
+- Python 3.6 ou superior instalado
+- Sistema operacional: Windows, Linux ou MacOS
+
+### 🔧 Passo a Passo
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/sisloja.git
+   cd sisloja
