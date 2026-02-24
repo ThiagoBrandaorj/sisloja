@@ -12,7 +12,6 @@
 [✨ Funcionalidades](#-funcionalidades) •
 [📸 Screenshots](#-screenshots) •
 [🚀 Como executar](#-como-executar) •
-[👥 Desenvolvedores](#-desenvolvedores)
 
 </div>
 
