@@ -120,8 +120,8 @@ class EstoqueModule:
             valor = float(self.valor_entry.get().replace(',', '.')) if self.valor_entry.get() else 0
             quantidade = int(self.quantidade_entry.get()) if self.quantidade_entry.get() else 0
             
-            if not codigo or not nome:
-                messagebox.showerror("Erro", "Código e nome são obrigatórios!")
+            if not codigo or not nome or not descricao or not valor:
+                messagebox.showerror("Erro", "Código, nome, descrição e valor são obrigatórios!")
                 return
 
             if not isinstance(codigo, int):
@@ -133,15 +133,7 @@ class EstoqueModule:
             # Verificar se código já existe
             for item in self.estoque:
                 if item['codigo'] == codigo:
-                    resposta = messagebox.askyesno("Item existente", 
-                                                  "Código já existe! Deseja atualizar a quantidade?")
-                    if resposta:
-                        item['quantidade'] += quantidade
-                        item['total'] = item['valor'] * item['quantidade']
-                        self.salvar_estoque()
-                        self.atualizar_lista()
-                        self.limpar_campos()
-                        messagebox.showinfo("Sucesso", "Quantidade atualizada!")
+                    messagebox.showerror("Erro", f"Código '{codigo}' já existe no estoque!")
                     return
             
             # Adicionar item
@@ -169,16 +161,55 @@ class EstoqueModule:
         if not selecionado:
             messagebox.showwarning("Aviso", "Selecione um item para remover!")
             return
-            
-        item = self.tree.item(selecionado[0])
-        codigo = item['values'][0]
         
-        if messagebox.askyesno("Confirmar", f"Remover item '{codigo}'?"):
-            self.estoque = [item for item in self.estoque if item['codigo'] != codigo]
+        item_id = selecionado[0]
+        item = self.tree.item(item_id)
+        
+        valores = item['values']
+        codigo = valores[0]
+        nome = valores[1]
+        quantidade_atual = valores[3]
+        
+            # Pergunta ao usuário como deseja remover
+        opcao = messagebox.askyesno(
+            "Confirmar Remoção",
+            f"Item: {nome}\n"
+            f"Código: {codigo}\n"
+            f"Quantidade atual: {quantidade_atual}\n\n"
+            "Deseja remover APENAS 1 unidade?\n"
+            "Sim = Remove 1 unidade\n"
+            "Não = Remove todas as unidades"
+            )
+        # Encontra o item no estoque
+        for i, item_estoque in enumerate(self.estoque):
+            if item_estoque['codigo'] == codigo:
+                if opcao:  # Sim - remove 1 unidade
+                    if item_estoque['quantidade'] > 1:
+                        # Reduz a quantidade em 1
+                        item_estoque['quantidade'] -= 1
+                        item_estoque['total'] = item_estoque['quantidade'] * item_estoque['valor']
+                        msg = f"1 unidade de '{nome}' removida com sucesso!"
+                    else:
+                        # Se só tem 1, remove o item completamente
+                        self.estoque.pop(i)
+                        msg = f"Item '{nome}' removido completamente!"
+                else:
+                    # Se só tem 1, remove o item completamente
+                    self.estoque.pop(i)
+                    msg = f"Item '{nome}' removido completamente!"
+            else:  # Não - remove todas as unidades
+                self.estoque.pop(i)
+                msg = f"Item '{nome}' removido completamente!"
+            
+            # Salva e atualiza
             self.salvar_estoque()
             self.atualizar_lista()
             self.limpar_campos()
-            messagebox.showinfo("Sucesso", "Item removido com sucesso!")
+            messagebox.showinfo("Sucesso", msg)
+            return
+    
+        # Se chegou aqui, não encontrou o item
+        messagebox.showerror("Erro", f"Item com código {codigo} não encontrado no estoque!")
             
     def atualizar_item(self):
         """Atualiza o item selecionado"""
