@@ -1,17 +1,19 @@
-# 🏪 SisLoja - Sistema de Gestão de Loja
+# README
+
+## SisLoja - Sistema de Gestão de Loja
 
 <div align="center">
-  
-  ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
-  ![Python](https://img.shields.io/badge/python-3.6+-green)
-  
-  **Sistema completo para gestão de loja com interface gráfica amigável**
-  
-  [✨ Funcionalidades](#-funcionalidades) •
-  [📸 Screenshots](#-screenshots) •
-  [🚀 Como executar](#-como-executar) •
-  [👥 Desenvolvedores](#-desenvolvedores)
-  
+
+![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
+![Python](https://img.shields.io/badge/python-3.6+-green)
+
+**Sistema completo para gestão de loja com interface gráfica amigável**
+
+[✨ Funcionalidades](#-funcionalidades) •
+[📸 Screenshots](#-screenshots) •
+[🚀 Como executar](#-como-executar) •
+[👥 Desenvolvedores](#-desenvolvedores)
+
 </div>
 
 ---
